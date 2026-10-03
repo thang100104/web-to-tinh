@@ -8,13 +8,66 @@ const resultEmoji = document.getElementById("resultEmoji");
 const resultTitle = document.getElementById("resultTitle");
 const resultMessage = document.getElementById("resultMessage");
 
-const delayPerLine = 1100;
+const delayPerLine = CONFIG.delayPerLine || 1100;
+
+function applyConfig() {
+  const welcomeTitle = document.querySelector(".intro-copy h1");
+  const welcomeHint = document.querySelector(".intro-copy p");
+  const envelopeLabel = document.querySelector(".for-you");
+  const tapHint = document.querySelector(".tap-hint");
+  const letterHeading = document.querySelector(".letter-paper h2");
+
+  welcomeTitle.innerHTML = CONFIG.welcomeTitle;
+  welcomeHint.textContent = CONFIG.welcomeHint;
+  envelopeLabel.textContent = CONFIG.envelopeLabel;
+  tapHint.textContent = CONFIG.tapHint;
+  letterHeading.textContent = CONFIG.letterHeading;
+
+  const letterText = document.getElementById("letterText");
+  letterText.innerHTML = "";
+
+  CONFIG.letterLines.forEach((text) => {
+    const p = document.createElement("p");
+    p.textContent = text;
+    letterText.appendChild(p);
+  });
+
+  const question = document.createElement("p");
+  question.className = "question-line";
+  question.textContent = CONFIG.question;
+  letterText.appendChild(question);
+
+  document.getElementById("yesBtn").textContent = CONFIG.yesButton;
+  document.getElementById("laterBtn").textContent = CONFIG.laterButton;
+
+  const photoCards = document.querySelectorAll(".polaroid");
+  photoCards.forEach((card, index) => {
+    const data = CONFIG.photos[index];
+    if (!data) {
+      card.style.display = "none";
+      return;
+    }
+
+    const img = card.querySelector("img");
+    const caption = card.querySelector("figcaption");
+
+    img.src = data.src;
+    img.alt = "Ảnh " + (index + 1);
+    caption.textContent = data.caption || "";
+  });
+
+  const source = bgMusic.querySelector("source");
+  if (source && CONFIG.music) {
+    source.src = CONFIG.music;
+    bgMusic.load();
+  }
+}
 
 function showLetterLines() {
   const lines = document.querySelectorAll("#letterText p");
   const buttons = document.querySelector(".choice-buttons");
 
-  lines.forEach(line => {
+  lines.forEach((line) => {
     line.classList.remove("show-line");
   });
 
@@ -52,13 +105,14 @@ function openLetter() {
   }, 760);
 }
 
+applyConfig();
+
 openLetterBtn.addEventListener("click", openLetter);
 
 document.getElementById("yesBtn").addEventListener("click", () => {
-  resultEmoji.textContent = "💖";
-  resultTitle.textContent = "Anh vui lắm!";
-  resultMessage.textContent =
-    "Cảm ơn em vì đã cho anh thêm một cơ hội. Anh sẽ trân trọng em và yêu em hơn bao giờ hết.";
+  resultEmoji.textContent = CONFIG.yesResult.emoji;
+  resultTitle.textContent = CONFIG.yesResult.title;
+  resultMessage.textContent = CONFIG.yesResult.message;
 
   resultModal.classList.add("show");
   resultModal.setAttribute("aria-hidden", "false");
@@ -67,10 +121,9 @@ document.getElementById("yesBtn").addEventListener("click", () => {
 });
 
 document.getElementById("laterBtn").addEventListener("click", () => {
-  resultEmoji.textContent = "🌷";
-  resultTitle.textContent = "Không sao đâu";
-  resultMessage.textContent =
-    "Em cứ suy nghĩ theo cách em thấy thoải mái nhé. Anh tôn trọng cảm xúc và câu trả lời của em. Anh vẫn sẽ luôn đợi em ở đây.";
+  resultEmoji.textContent = CONFIG.laterResult.emoji;
+  resultTitle.textContent = CONFIG.laterResult.title;
+  resultMessage.textContent = CONFIG.laterResult.message;
 
   resultModal.classList.add("show");
   resultModal.setAttribute("aria-hidden", "false");
