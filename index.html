@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gửi Em 💌</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="sunset"></div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+    <div class="branch branch-left">🌸</div>
+    <div class="branch branch-right">🌸</div>
+    <div class="hanging-lights">
+      <span>💡</span><span>♡</span><span>💡</span><span>☆</span><span>💡</span>
+    </div>
+  </div>
+
+  <div id="petals" class="petals"></div>
+
+  <!-- MÀN HÌNH 1 -->
+  <section id="welcomeScreen" class="screen active">
+  <div class="stage welcome-stage">
+
+    <main class="welcome-center">
+      <div class="intro-copy">
+        <div class="neon-heart">♡</div>
+
+        <h1>
+          Có một<br>
+          lá thư<br>
+          muốn gửi Thỏ
+        </h1>
+
+        <div class="divider">♡</div>
+
+        <p>Nhấn vào lá thư để xem nhé...</p>
+      </div>
+
+      <button id="openLetterBtn"
+              class="envelope-button"
+              aria-label="Mở lá thư">
+
+        <div class="envelope">
+          <div class="envelope-back"></div>
+          <div class="paper-peek"></div>
+          <div class="envelope-front"></div>
+          <div class="flap"></div>
+
+          <div class="seal">♥</div>
+
+          <span class="for-you">
+            For You ♡
+          </span>
+        </div>
+
+        <span class="tap-hint">
+          ☝ Nhấn vào đây ♥
+        </span>
+
+      </button>
+    </main>
+
+  </div>
+</section>
+
+  <!-- MÀN HÌNH 2 -->
+  <section id="letterScreen" class="screen">
+    <div class="stage letter-stage">
+      <aside class="photo-column left-column">
+        <figure class="polaroid rotate-left">
+          <img src="images/photo1.jpg" alt="Ảnh 1" />
+          <figcaption>Dễ thương quá... ♥</figcaption>
+        </figure>
+        <figure class="polaroid rotate-right small-card">
+          <img src="images/photo2.jpg" alt="Ảnh 2" />
+          <figcaption>Xinh thật đấy... ♥</figcaption>
+        </figure>
+        <figure class="polaroid rotate-left small-card">
+          <img src="images/photo3.jpg" alt="Ảnh 3" />
+          <figcaption>Lúc nào cũng xinh... ♥</figcaption>
+        </figure>
+      </aside>
+
+      <main class="letter-center">
+        <div class="open-envelope">
+          <div class="open-envelope-back"></div>
+
+          <article class="letter-paper">
+            <div class="flower-corner">🌸</div>
+            <h2>Gửi Thỏ ♥</h2>
+            <div class="letter-divider">♡</div>
+
+            <div id="letterText" class="letter-text">
+              <p>Từ gặp em, thế giới của anh như sáng bừng lên những điều thật đẹp.</p>
+              <p>Em là người khiến những ngày bình thường cũng trở nên đặc biệt.</p>
+              <p>Anh thật may mắn khi có em trong cuộc đời này.</p>
+              <p>Anh không hứa sẽ luôn hoàn hảo, nhưng anh hứa sẽ luôn ở đây, bên em, yêu em bằng tất cả chân thành và cố gắng mỗi ngày.</p>
+              <p>Anh sẽ thay đổi bản thân để trở thành người xứng đáng với em.</p>
+              <p class="question-line">Em đồng ý quay lại với anh nhá? ♥</p>
+            </div>
+
+            <div class="choice-buttons">
+              <button id="yesBtn" class="choice yes">♥ Em đồng ý</button>
+              <button id="laterBtn" class="choice later">× Để em suy nghĩ thêm</button>
+            </div>
+          </article>
+
+          <div class="open-envelope-front">
+            <div class="heart-gem">♥</div>
+            <span class="love-tag">I love you ♥</span>
+          </div>
+        </div>
+      </main>
+
+      <aside class="photo-column right-column">
+        <figure class="polaroid rotate-right">
+          <img src="images/photo4.jpg" alt="Ảnh 4" />
+          <figcaption>Yêu em nhiều lắm... ♥</figcaption>
+        </figure>
+        <figure class="polaroid rotate-left small-card">
+          <img src="images/photo5.jpg" alt="Ảnh 5" />
+          <figcaption>Lúc nào cũng xinh... ♥</figcaption>
+        </figure>
+        <figure class="polaroid rotate-right small-card">
+          <img src="images/photo6.jpg" alt="Ảnh 6" />
+          <figcaption>Mãi xinh đẹp nhé... ♥</figcaption>
+        </figure>
+      </aside>
+    </div>
+  </section>
+
+  <!-- KẾT QUẢ -->
+  <div id="resultModal" class="result-modal" aria-hidden="true">
+    <div class="result-card">
+      <div id="resultEmoji" class="result-emoji">💖</div>
+      <h3 id="resultTitle">Anh vui lắm!</h3>
+      <p id="resultMessage">Cảm ơn em vì đã đọc hết lá thư này.</p>
+      <button id="closeResult">Đóng</button>
+    </div>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
