@@ -1683,136 +1683,102 @@ body::after {
 
 
 /* =========================================
+/* =========================================
    MOBILE / TABLET NHỎ
 ========================================= */
 
 @media (max-width: 780px) {
 
   .stage {
-    grid-template-columns:
-      1fr;
-
-    padding:
-      28px 16px 36px;
+    grid-template-columns: 1fr;
+    padding: 28px 16px 36px;
   }
-
 
   .welcome-stage {
-    display:
-      flex !important;
-
-    justify-content:
-      center !important;
-
-    align-items:
-      center !important;
-
-    padding:
-      25px 12px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 25px 12px;
   }
-
 
   .welcome-center {
-    min-height:
-      100vh;
-
-    width:
-      100%;
+    min-height: 100vh;
+    width: 100%;
   }
 
-
+  /* HIỆN CẢ 2 CỤM ẢNH */
   .photo-column {
-    flex-direction:
-      row;
-
-    overflow-x:
-      auto;
-
-    width:
-      100%;
-
-    padding:
-      10px 6px 18px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    width: 100%;
+    gap: 12px;
+    padding: 10px 6px 18px;
+    justify-content: flex-start;
   }
 
-
-  .photo-column
-  .polaroid {
-    flex:
-      0 0 150px;
-
-    width:
-      150px;
+  .photo-column .polaroid {
+    flex: 0 0 150px;
+    width: 150px;
   }
 
-
+  /* KHÔNG ẨN ẢNH BÊN PHẢI */
   .right-column {
-    display:
-      none;
+    display: flex;
   }
 
+  .left-column {
+    order: 1;
+  }
 
   .letter-center {
-    min-height:
-      auto;
+    order: 2;
+    min-height: auto;
   }
 
+  .right-column {
+    order: 3;
+  }
 
   .intro-copy h1 {
-    font-size:
-      clamp(
-        48px,
-        15vw,
-        78px
-      );
+    font-size: clamp(
+      48px,
+      15vw,
+      78px
+    );
   }
-
 
   .envelope {
-    width:
-      min(
-        500px,
-        92vw
-      );
+    width: min(
+      500px,
+      92vw
+    );
   }
-
 
   .open-envelope {
-    width:
-      min(
-        650px,
-        96vw
-      );
+    width: min(
+      650px,
+      96vw
+    );
 
-    min-height:
-      820px;
+    min-height: 820px;
   }
-
 
   .letter-paper {
-    width:
-      90%;
-
-    min-height:
-      650px;
-
-    padding:
-      38px 22px 120px;
+    width: 90%;
+    min-height: 650px;
+    padding: 38px 22px 120px;
   }
-
 
   .choice {
-    min-width:
-      min(
-        280px,
-        86vw
-      );
+    min-width: min(
+      280px,
+      86vw
+    );
   }
 
-
   .open-envelope-front {
-    height:
-      28%;
+    height: 28%;
   }
 
 }
